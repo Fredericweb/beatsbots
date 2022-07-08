@@ -51,25 +51,32 @@ app.post("/click", (req, res) => {
   const t= total
   console.log(typeof t);
 	console.log(user)
-	bot.telegram.sendInvoice(user.id,{
-		        title : "payement",
-            description: "Casque Beats",
-            payload:"A450-03",
-            // start_parameter: 'online_conslutation',
-            provider_token:"284685063:TEST:ZTRkOWZkZjRlNTgy",
-            currency:"USD",
-            photo_url:"https://mproweb.uz/YTless/greenMarket/store/img/pay.jpg",
-            // need_name : true,
-            // need_phone_number : true,
-            // need_email : true,
-            // need_shipping_address : true,
-            // send_phone_number_to_provider : true,
-            // is_flexible: false,
-            prices: [{label : 'Casques Beats' , amount : t*100}],
-            reply_markup: {
-                inline_keyboard: [[{ text: "payez "+total +"$US", pay:true }]] 
-            }
-	})
+  const getInvoice = (total) => {
+    const invoice ={
+      title : "payement",
+      description: "Casque Beats",
+      payload:"A450-03",
+      // start_parameter: 'online_conslutation',
+      provider_token:"284685063:TEST:ZTRkOWZkZjRlNTgy",
+      currency:"USD",
+      photo_url:"https://mproweb.uz/YTless/greenMarket/store/img/pay.jpg",
+      // need_name : true,
+      // need_phone_number : true,
+      // need_email : true,
+      // need_shipping_address : true,
+      // send_phone_number_to_provider : true,
+      // is_flexible: false,
+      prices: [{label : 'Casques Beats' , amount : total*100}],
+      reply_markup: {
+          inline_keyboard: [[{ text: "payez "+total +"$US", pay:true }]] 
+      }
+
+      
+    }
+    return invoice
+  }
+	bot.telegram.sendInvoice(user.id,getInvoice(total)
+	)
   bot.use(Telegraf.log())
   bot.on('pre_checkout_query', (ctx) => ctx.answerPreCheckoutQuery(true)) //      
 
