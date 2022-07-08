@@ -51,8 +51,7 @@ app.post("/click", (req, res) => {
   
   tab = []
   tabPrices = tab.push({label : 'Casques Beats' , amount : total*100})
-  tabJson = JSON.stringify(tabPrices)
-  console.log(tabJson)
+  console.log(tabPrices)
 	console.log(user)
 	bot.telegram.sendInvoice(user.id,{
 		        title : "payement",
@@ -68,8 +67,7 @@ app.post("/click", (req, res) => {
             // need_shipping_address : true,
             // send_phone_number_to_provider : true,
             // is_flexible: false,
-            prices: tabJson,
-            total_amount: total * 100,
+            prices: tabPrices,
             reply_markup: {
                 inline_keyboard: [[{ text: "payez "+total +"$US", pay:true }]] 
             }
