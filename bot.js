@@ -49,7 +49,7 @@ app.post("/click", (req, res) => {
 	let { total, user } = req.body
 
   const t= total
-  console.log(typeof t);
+  console.log(t);
 	console.log(user)
   const getInvoice = (total) => {
     const invoice ={
