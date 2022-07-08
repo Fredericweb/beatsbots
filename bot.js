@@ -49,7 +49,7 @@ app.post("/click", (req, res) => {
 
   const t= total
   let c =0
-  if(t>0 && c == 0){
+  if(total>0 && c == 0){
     console.log(t);
 	  console.log(user)
     const getInvoice = (total) => {
