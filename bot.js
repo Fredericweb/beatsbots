@@ -70,6 +70,13 @@ app.post("/click", (req, res) => {
                 inline_keyboard: [[{ text: "payez "+total +"$US", pay:true }]] 
             }
 	})
+  bot.on('pre_checkout_query', (ctx) => {
+    bot.telegram.answerPreCheckoutQuery(ctx.id, true)
+  })
+
+  bot.on('successful_payment' , (ctx) => {
+    ctx.reply('Operation effectuée!!!')
+  })
 
 })
 app.listen(port, () => {
