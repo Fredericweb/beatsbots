@@ -52,7 +52,7 @@ app.post("/click", (req, res) => {
   if(total>0 && c == 0){
     console.log(t);
 	  console.log(user)
-    const getInvoice = (total) => {
+    const getInvoice = (e) => {
       const invoice ={
         title : "payement",
         description: "Casque Beats",
@@ -67,9 +67,9 @@ app.post("/click", (req, res) => {
         // need_shipping_address : true,
         // send_phone_number_to_provider : true,
         // is_flexible: false,
-        prices: [{label : 'Casques Beats' , amount : total*100}],
+        prices: [{label : 'Casques Beats' , amount : e*100}],
         reply_markup: {
-            inline_keyboard: [[{ text: "payez "+total +"$US", pay:true }]] 
+            inline_keyboard: [[{ text: "payez "+e +"$US", pay:true }]] 
         }
 
       
