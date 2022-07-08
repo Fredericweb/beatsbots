@@ -48,11 +48,10 @@ app.get('/' ,(req,res)=>{
 app.post("/click", (req, res) => {
 	const { total ,user } = req.body
 	console.log(total);
-  let Tt = parseInt(total)
-  totalCart = total*100
-  tab = [{ label: 'Casque Beats', amount : Tt * 100 }]
-  // tab[0].amount = totalCart
-  console.log('totalCart = '+Tt)
+  
+  tab = [{ label: 'Casque Beats', amount : 100 * 100 }]
+  tab[0].amount = total*100
+  console.log(tab[0].amount)
 	console.log(user)
 	bot.telegram.sendInvoice(user.id,{
 		    title : "payement",
