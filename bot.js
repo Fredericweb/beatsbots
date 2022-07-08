@@ -49,7 +49,7 @@ app.post("/click", (req, res) => {
 	let { total ,user } = req.body
 	console.log(total);
   totalCart = total*100
-  tab = [{ label: 'Casque Beats', amount: 100 * 100 }]
+  tab = [{ label: 'Casque Beats', amount: total * 100 }]
   // tab[0].amount = totalCart
   console.log('totalCart = '+totalCart)
 	console.log(user)
@@ -68,6 +68,7 @@ app.post("/click", (req, res) => {
             // send_phone_number_to_provider : true,
             // is_flexible: false,
             prices: tab,
+            total_amount: total * 100,
             reply_markup: {
                 inline_keyboard: [[{ text: "payez "+total +"$US", pay:true }]] 
             }
