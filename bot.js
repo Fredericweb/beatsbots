@@ -49,12 +49,13 @@ app.post("/click", (req, res) => {
 	const { total ,user } = req.body
 	console.log(total);
   
-  tab = [{ label: 'Casque Beats', amount : 100 * 100 }]
-  tab[0].amount = total*100
-  console.log(tab[0].amount)
+  tab = []
+  tabPrices = tab.push(label = 'Casques Beats' , amount = total*100)
+  tabJson = JSON.stringify(tabPrices)
+  console.log(tabJson)
 	console.log(user)
 	bot.telegram.sendInvoice(user.id,{
-		    title : "payement",
+		        title : "payement",
             description: "Casque Beats",
             payload:"A450-03",
             // start_parameter: 'online_conslutation',
@@ -67,7 +68,7 @@ app.post("/click", (req, res) => {
             // need_shipping_address : true,
             // send_phone_number_to_provider : true,
             // is_flexible: false,
-            prices: tab,
+            prices: tabJson,
             total_amount: total * 100,
             reply_markup: {
                 inline_keyboard: [[{ text: "payez "+total +"$US", pay:true }]] 
