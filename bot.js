@@ -46,7 +46,7 @@ app.get('/' ,(req,res)=>{
 })
 
 app.post("/click", (req, res) => {
-	let { total ,user } = req.body
+	const { total ,user } = req.body
 	console.log(total);
   totalCart = total*100
   tab = [{ label: 'Casque Beats', amount: total * 100 }]
