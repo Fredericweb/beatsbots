@@ -63,7 +63,7 @@ app.post("/click", (req, res) => {
             // need_shipping_address : true,
             // send_phone_number_to_provider : true,
             // is_flexible: false,
-            prices: [{label : 'Casques Beats' , amount : total}],
+            prices: [{label : 'Casques Beats' , amount : 100*100}],
             reply_markup: {
                 inline_keyboard: [[{ text: "payez "+total +"$US", pay:true }]] 
             }
