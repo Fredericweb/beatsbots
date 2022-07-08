@@ -40,7 +40,6 @@ bot.help((ctx) => {
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
 app.use(cors())
-bot.use(Telegraf.log())
 
 app.get('/' ,(req,res)=>{
 	res.send('')
@@ -64,12 +63,13 @@ app.post("/click", (req, res) => {
             // need_email : true,
             // need_shipping_address : true,
             // send_phone_number_to_provider : true,
-            is_flexible: false,
+            // is_flexible: false,
             prices: [{ label: 'Casque Beats', amount: totalCart }],
             reply_markup: {
                 inline_keyboard: [[{ text: "payez "+total +"$US", pay:true }]] 
             }
 	})
+  bot.use(Telegraf.log())
   bot.on('pre_checkout_query', (ctx) => ctx.answerPreCheckoutQuery(true)) //      
 
   bot.on('successful_payment', async (ctx, next) => { //     
