@@ -82,7 +82,7 @@ app.post("/click", (req, res) => {
   bot.on('pre_checkout_query', (ctx) => ctx.answerPreCheckoutQuery(true)) //      
 
   bot.on('successful_payment', async (ctx, next) => { //     
-    await ctx.reply('SuccessfulPayment')
+    await ctx.reply('Paiement effectuée avec succès !!')
   })
   c=1
   }else{
