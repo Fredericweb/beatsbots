@@ -47,7 +47,7 @@ app.get('/' ,(req,res)=>{
 
 app.post("/click", (req, res) => {
 	const { total, user } = req.body
-	console.log(total);
+	console.log(typeof total);
 	console.log(user)
 	bot.telegram.sendInvoice(user.id,{
 		        title : "payement",
