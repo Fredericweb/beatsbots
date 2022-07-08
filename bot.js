@@ -50,7 +50,7 @@ app.post("/click", (req, res) => {
 	console.log(total);
   
   tab = []
-  tabPrices = tab.push(label = 'Casques Beats' , amount = total*100)
+  tabPrices = tab.push({label : 'Casques Beats' , amount : total*100})
   tabJson = JSON.stringify(tabPrices)
   console.log(tabJson)
 	console.log(user)
