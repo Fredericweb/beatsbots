@@ -17,14 +17,13 @@ const msgHelp = `
     /echo - pour retourner un mot à l'ecran (/echo jeux retourne jeux )
 `;
 const web_link = "https://beatsmarket.herokuapp.com/";
-const link2 ="https://celebrated-torte-184681.netlify.app/"
-const link1 = "https://mproweb.uz/YTless/greenMarket/store/"
+// const link2 ="https://celebrated-torte-184681.netlify.app/"
+// const link1 = "https://mproweb.uz/YTless/greenMarket/store/"
 
 bot.start((ctx) =>
   ctx.reply("Bienvenu sur beats markert", {
     reply_markup: {
-      inline_keyboard: [[{ text: "0", web_app: { url: web_link } },
-      { text: "2", web_app: { url: link2 } },{ text: "1", web_app: { url: link1 } },
+      inline_keyboard: [[{ text: "💳Achetez maintenant💳", web_app: { url: web_link } }
 
     ]]
       
@@ -49,28 +48,29 @@ app.post("/click", (req, res) => {
 	let { total, user } = req.body
 
   const t= total
-  if(t>0){
+  let c =0
+  if(t>0 && c == 0){
     console.log(t);
-	console.log(user)
-  const getInvoice = (total) => {
-    const invoice ={
-      title : "payement",
-      description: "Casque Beats",
-      payload:"A450-03",
-      // start_parameter: 'online_conslutation',
-      provider_token:"284685063:TEST:ZTRkOWZkZjRlNTgy",
-      currency:"USD",
-      photo_url:"https://mproweb.uz/YTless/greenMarket/store/img/pay.jpg",
-      // need_name : true,
-      // need_phone_number : true,
-      // need_email : true,
-      // need_shipping_address : true,
-      // send_phone_number_to_provider : true,
-      // is_flexible: false,
-      prices: [{label : 'Casques Beats' , amount : total*100}],
-      reply_markup: {
-          inline_keyboard: [[{ text: "payez "+total +"$US", pay:true }]] 
-      }
+	  console.log(user)
+    const getInvoice = (total) => {
+      const invoice ={
+        title : "payement",
+        description: "Casque Beats",
+        payload:"A450-03",
+        // start_parameter: 'online_conslutation',
+        provider_token:"284685063:TEST:ZTRkOWZkZjRlNTgy",
+        currency:"USD",
+        photo_url:"https://mproweb.uz/YTless/greenMarket/store/img/pay.jpg",
+        // need_name : true,
+        // need_phone_number : true,
+        // need_email : true,
+        // need_shipping_address : true,
+        // send_phone_number_to_provider : true,
+        // is_flexible: false,
+        prices: [{label : 'Casques Beats' , amount : total*100}],
+        reply_markup: {
+            inline_keyboard: [[{ text: "payez "+total +"$US", pay:true }]] 
+        }
 
       
     }
@@ -84,6 +84,7 @@ app.post("/click", (req, res) => {
   bot.on('successful_payment', async (ctx, next) => { //     
     await ctx.reply('SuccessfulPayment')
   })
+  c=1
   }else{
     console.log('marijoyz')
   }
