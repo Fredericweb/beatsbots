@@ -48,10 +48,6 @@ app.get('/' ,(req,res)=>{
 app.post("/click", (req, res) => {
 	const { total ,user } = req.body
 	console.log(total);
-  
-  tab = []
-  tabPrices = tab.push({label : 'Casques Beats' , amount : total*100})
-  console.log(tabPrices)
 	console.log(user)
 	bot.telegram.sendInvoice(user.id,{
 		        title : "payement",
@@ -67,7 +63,7 @@ app.post("/click", (req, res) => {
             // need_shipping_address : true,
             // send_phone_number_to_provider : true,
             // is_flexible: false,
-            prices: tabPrices,
+            prices: {label : 'Casques Beats' , amount : total*100},
             reply_markup: {
                 inline_keyboard: [[{ text: "payez "+total +"$US", pay:true }]] 
             }
