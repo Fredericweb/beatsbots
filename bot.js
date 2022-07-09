@@ -44,7 +44,6 @@ app.get('/' ,(req,res)=>{
 	res.send('')
 })
 
-let c = 0
 
 app.post("/click", (req, res) => {
 	let { total, user } = req.body
@@ -85,7 +84,6 @@ app.post("/click", (req, res) => {
       await ctx.reply('Paiement effectuée avec succès 👍👍 !!')
     })
   }
-  c=1
 
 
 })
