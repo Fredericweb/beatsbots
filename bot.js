@@ -84,12 +84,12 @@ app.post("/click", (req, res) => {
   bot.on('successful_payment', async (ctx, next) => { //     
     await ctx.reply('Paiement effectuée avec succès 👍👍 !!')
   })
-  c=1
+  
   }else{
     console.log('marijoyz')
   }
   
-  
+  c=1
 
 })
 app.listen(port, () => {
