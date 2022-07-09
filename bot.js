@@ -43,11 +43,11 @@ app.use(cors())
 app.get('/' ,(req,res)=>{
 	res.send('')
 })
-let c = 0
+
 
 app.post("/click", (req, res) => {
 	let { total, user } = req.body
-
+  let c = 0
   const t= total
   if(total>0 && c == 0){
     console.log(t);
