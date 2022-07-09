@@ -44,17 +44,17 @@ app.get('/' ,(req,res)=>{
 	res.send('')
 })
 
+let c = 0
 
 app.post("/click", (req, res) => {
 	let { total, user } = req.body
-  let c = 0
   const t= total
-  while(total>0 && c == 0){
+  if(total>0 && c == 0){
     console.log(t);
 	  console.log(user)
     const getInvoice = (e) => {
       const invoice ={
-        title : "payement",
+        title : "paiement",
         description: "Casque Beats",
         payload:"A450-03",
         // start_parameter: 'online_conslutation',
@@ -74,19 +74,19 @@ app.post("/click", (req, res) => {
 
       
     }
-    return invoice
-  }
-	bot.telegram.sendInvoice(user.id,getInvoice(total)
-	)
-  bot.use(Telegraf.log())
-  bot.on('pre_checkout_query', (ctx) => ctx.answerPreCheckoutQuery(true)) //      
+      return invoice
+    }
+    bot.telegram.sendInvoice(user.id,getInvoice(total)
+    )
+    bot.use(Telegraf.log())
+    bot.on('pre_checkout_query', (ctx) => ctx.answerPreCheckoutQuery(true)) //      
 
-  bot.on('successful_payment', async (ctx, next) => { //     
-    await ctx.reply('Paiement effectuée avec succès 👍👍 !!')
-  })
-  c=1
+    bot.on('successful_payment', async (ctx, next) => { //     
+      await ctx.reply('Paiement effectuée avec succès 👍👍 !!')
+    })
   }
-  
+  c=1
+
 
 })
 app.listen(port, () => {
