@@ -48,7 +48,7 @@ app.get('/' ,(req,res)=>{
 app.post("/click", (req, res) => {
 	let { total, user } = req.body
   const t= total
-  if(total>0 && c == 0){
+  if(total>0){
     console.log(t);
 	  console.log(user)
     const getInvoice = (e) => {
