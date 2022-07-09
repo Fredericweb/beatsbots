@@ -49,7 +49,7 @@ app.post("/click", (req, res) => {
 	let { total, user } = req.body
   let c = 0
   const t= total
-  if(total>0 && c == 0){
+  while(total>0 && c == 0){
     console.log(t);
 	  console.log(user)
     const getInvoice = (e) => {
@@ -84,12 +84,9 @@ app.post("/click", (req, res) => {
   bot.on('successful_payment', async (ctx, next) => { //     
     await ctx.reply('Paiement effectuée avec succès 👍👍 !!')
   })
-  
-  }else{
-    console.log('marijoyz')
+  c=1
   }
   
-  c=1
 
 })
 app.listen(port, () => {
