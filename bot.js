@@ -48,9 +48,7 @@ app.get('/' ,(req,res)=>{
 app.post("/click", (req, res) => {
 	let { total, user } = req.body
   const t= total
-  if(total>0){
-    console.log(t);
-	  console.log(user)
+  
     const getInvoice = (e) => {
       const invoice ={
         title : "paiement",
@@ -83,7 +81,7 @@ app.post("/click", (req, res) => {
     bot.on('successful_payment', async (ctx, next) => { //     
       await ctx.reply('Paiement effectuée avec succès 👍👍 !!')
     })
-  }
+
 
 
 })
