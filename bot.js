@@ -49,7 +49,7 @@ app.post("/click", (req, res) => {
 	let { total, user } = req.body
   const t= total
   
-    const getInvoice = (e) => {
+    const getInvoice = async (e) => {
       const invoice ={
         title : "paiement",
         description: "Casque Beats",
