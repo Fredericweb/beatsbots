@@ -47,9 +47,11 @@ app.get('/' ,(req,res)=>{
 
 app.post("/click", (req, res) => {
 	let { total, user } = req.body
-  const t= total
+  let tab =[]
+  tab.push(total)
+  console.log(tab)
   
-    const getInvoice = async (e) => {
+    const getInvoice =  (e) => {
       const invoice ={
         title : "paiement",
         description: "Casque Beats",
