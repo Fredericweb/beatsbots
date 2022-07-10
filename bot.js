@@ -58,12 +58,12 @@ app.post("/click", (req, res) => {
         provider_token:"284685063:TEST:ZTRkOWZkZjRlNTgy",
         currency:"USD",
         photo_url:"https://mproweb.uz/YTless/greenMarket/store/img/pay.jpg",
-        // need_name : true,
-        // need_phone_number : true,
-        // need_email : true,
-        // need_shipping_address : true,
-        // send_phone_number_to_provider : true,
-        // is_flexible: false,
+        need_name : true,
+        need_phone_number : true,
+        need_email : true,
+        need_shipping_address : true,
+        send_phone_number_to_provider : true,
+        is_flexible: false,
         prices: [{label : 'Casques Beats' , amount : e*100}],
         reply_markup: {
             inline_keyboard: [[{ text: "payez "+e +"$US", pay:true }]] 
