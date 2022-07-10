@@ -86,7 +86,7 @@ app.post("/click", (req, res) => {
       await ctx.reply('Paiement effectuée avec succès 👍👍 !!')
     })
 
-
+    res.send('ok'+total)
 
 })
 app.listen(port, () => {
