@@ -58,6 +58,8 @@ app.post("/click", (req, res) => {
         provider_token:"284685063:TEST:ZTRkOWZkZjRlNTgy",
         currency:"USD",
         photo_url:"https://mproweb.uz/YTless/greenMarket/store/img/pay.jpg",
+        photo_width:735,
+        photo_heigth:490,
         need_name : true,
         need_phone_number : true,
         need_email : true,
